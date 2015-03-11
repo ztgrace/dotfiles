@@ -109,4 +109,11 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias sl="ls"
 
-PS1='\[\033[01;34m\][\D{%H:%M:%S}]\[\033[01;31m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]]\[\033[00m\]# '
+function git-current-branch {
+    branch=$(git branch 2> /dev/null | grep "^* " | sed -e 's/^\* //')
+    if [ -n "${branch}" ]; then
+        echo " ($branch) "
+    fi
+}
+
+PS1='\[\033[01;34m\][\D{%H:%M:%S}]\[\033[01;31m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]]\[\033[00m\]$(git-current-branch)# '
