@@ -108,6 +108,7 @@ alias sed="sed -E"
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias sl="ls"
+alias objdump="objdump -M intel intel-mnemonic "
 
 function git-current-branch {
     branch=$(git branch 2> /dev/null | grep "^* " | sed -e 's/^\* //')
