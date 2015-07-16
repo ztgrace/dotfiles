@@ -1,0 +1,1 @@
+/Users/ztg/dotfiles/vim-pathogen/autoload/pathogen.vim

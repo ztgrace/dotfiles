@@ -14,6 +14,11 @@ set number
 set autoread
 set laststatus=2
 
+" nerdcommenter
+filetype plugin on
+let mapleader = ","
+set timeout timeoutlen=1500
+
 set background=dark
 colorscheme solarized
 let g:solarized_termcolors=256
@@ -31,10 +36,16 @@ au BufNewFile,BufRead *.rb set softtabstop=2
 au BufNewFile,BufReadPost *.md set filetype=markdown
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
 
+" Vagrant
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
 au BufNewFile,BufRead Vagrantfile set tabstop=2
 au BufNewFile,BufRead Vagrantfile set shiftwidth=2
 au BufNewFile,BufRead Vagrantfile set softtabstop=2
+
+" yaml
+au BufNewFile,BufRead *.yml set tabstop=2
+au BufNewFile,BufRead *.yml set shiftwidth=2
+au BufNewFile,BufRead *.yml set softtabstop=2
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
@@ -64,3 +75,13 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
+
+" syntastic
+set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
