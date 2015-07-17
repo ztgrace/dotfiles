@@ -3,6 +3,7 @@
 CWD=$(pwd)
 
 ln -is $CWD/.bashrc $HOME
+ln -is $CWD/.dir_colors $HOME
 ln -is $CWD/.gdbinit $HOME
 ln -is $CWD/.net-stats.sh $HOME
 ln -is $CWD/.tmux.conf $HOME
