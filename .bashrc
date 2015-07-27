@@ -119,3 +119,5 @@ function git-current-branch {
 
 PS1='\[\033[01;34m\][\D{%H:%M:%S %d.%m.%y}]\[\033[01;31m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]]\[\033[00m\]$(git-current-branch)# '
 PS1='\[\033[00;33m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;33m\]]\[\033[00m\]$(git-current-branch)# '
+
+#test "$(ps -ocommand= -p $PPID | awk '{print $1}')" == 'script' || (script -f $HOME/logs/$(date +"%d-%b-%y_%H-%M-%S")_shell.log)
