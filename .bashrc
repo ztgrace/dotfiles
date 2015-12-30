@@ -109,6 +109,8 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias sl="ls"
 alias objdump="objdump -M intel intel-mnemonic "
+alias pws="python -m SimpleHTTPServer "
+eip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 function git-current-branch {
     branch=$(git branch 2> /dev/null | grep "^* " | sed -e 's/^\* //')
@@ -125,3 +127,4 @@ else
 fi
 
 #test "$(ps -ocommand= -p $PPID | awk '{print $1}')" == 'script' || (script -f $HOME/logs/$(date +"%d-%b-%y_%H-%M-%S")_shell.log)
+
