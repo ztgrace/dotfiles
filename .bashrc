@@ -101,7 +101,6 @@ fi
 
 alias sortip="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
 set -o vi
-export GREP_OPTIONS='--color=auto'
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 alias sed="sed -E"
 #export GREP_COLOR='1;35;40'
@@ -110,7 +109,7 @@ alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.
 alias sl="ls"
 alias objdump="objdump -M intel intel-mnemonic "
 alias pws="python -m SimpleHTTPServer "
-eip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias eip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 function git-current-branch {
     branch=$(git branch 2> /dev/null | grep "^* " | sed -e 's/^\* //')
@@ -120,7 +119,7 @@ function git-current-branch {
 }
 
 PS1='\[\033[01;34m\][\D{%H:%M:%S %d.%m.%y}]\[\033[01;31m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]]\[\033[00m\]$(git-current-branch)# '
-if [ $(grep -c Kali /etc/debian_version) -eq 1 ]; then
+if [ -f /etc/debian_version ] && [ $(grep -c Kali /etc/debian_version) -eq 1 ]; then
     PS1='\[\033[01;34m\][\D{%H:%M:%S-%y%m%d}]\[\033[01;31m\][\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]]\[\033[00m\]$(git-current-branch)# '
 else
     PS1='\[\033[00;33m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;33m\]]\[\033[00m\]$(git-current-branch)# '

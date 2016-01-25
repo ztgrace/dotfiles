@@ -20,7 +20,6 @@ let mapleader = ","
 set timeout timeoutlen=1500
 
 set background=dark
-colorscheme solarized
 let g:solarized_termcolors=256
 
 au BufNewFile,BufRead *.rc set syntax=ruby
