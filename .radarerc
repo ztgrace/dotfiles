@@ -1,0 +1,12 @@
+eval asm.pseudo = true
+eval scr.color = true
+eval dbg.bep   = entry
+eval file.id   = true
+eval file.flag = true
+eval file.analyze = true
+eval asm.cmtright = true
+eval cmd.stack = true
+eco solarized
+eval scr.utf8 = true
+eval asm.relsub = true
+eval asm.syntax=intel

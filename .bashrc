@@ -111,6 +111,7 @@ alias objdump="objdump -M intel intel-mnemonic "
 alias pws="python -m SimpleHTTPServer "
 alias eip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias gdb="gdb -q"
+alias mkdir="mkdir -p"
 
 function git-current-branch {
     branch=$(git branch 2> /dev/null | grep "^* " | sed -e 's/^\* //')
