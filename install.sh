@@ -5,6 +5,7 @@ CWD=$(pwd)
 git submodule update --init --recursive
 
 ln -is $CWD/.bashrc $HOME
+ln -is $CWD/.bash_aliases $HOME
 ln -is $CWD/.dir_colors $HOME
 ln -is $CWD/.gdbinit $HOME
 ln -is $CWD/.inputrc $HOME

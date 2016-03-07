@@ -1,4 +1,3 @@
-eval asm.pseudo = true
 eval scr.color = true
 eval dbg.bep   = entry
 eval file.id   = true
@@ -10,3 +9,5 @@ eco solarized
 eval scr.utf8 = true
 eval asm.relsub = true
 eval asm.syntax=intel
+eval asm.pseudo = true
+eval asm.describe = false

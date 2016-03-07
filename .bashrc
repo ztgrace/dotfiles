@@ -65,23 +65,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -99,19 +82,8 @@ fi
 #fi
 
 
-alias sortip="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
 set -o vi
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-alias sed="sed -E"
-#export GREP_COLOR='1;35;40'
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-alias sl="ls"
-alias objdump="objdump -M intel intel-mnemonic "
-alias pws="python -m SimpleHTTPServer "
-alias eip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias gdb="gdb -q"
-alias mkdir="mkdir -p"
 
 function git-current-branch {
     branch=$(git branch 2> /dev/null | grep "^* " | sed -e 's/^\* //')
