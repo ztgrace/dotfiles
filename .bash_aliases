@@ -1,4 +1,14 @@
-alias ls='ls --color=auto'
+# OS Specific aliases
+if [ $(uname) == 'Darwin' ]; then
+    alias ls='ls -G'
+    alias cpus="sysctl -n hw.ncpu"
+    alias ram="export mem=$(echo $(sysctl -n hw.memsize)/1024/1024/1000| bc); echo ${mem}GB"
+else # Assumes Linux
+    alias ls='ls --color=auto'
+    alias cpus="grep -c processor /proc/cpuinfo"
+    alias ram="echo $(free -m | grep Mem | awk '{print $2;}')MB"
+fi
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -15,5 +25,14 @@ alias pws="python -m SimpleHTTPServer "
 alias eip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias gdb="gdb -q"
 alias mkdir="mkdir -p"
-alias cpus="if [ $(uname) == 'Darwin' ]; then sysctl -n hw.ncpu; else grep -c processor /proc/cpuinfo; fi"
-#alias ram="if [ $(uname) == 'Darwin' ]; then export mem=$(echo $(sysctl -n hw.memsize)/1024/1024/1000| bc); echo ${mem}GB; else echo $(free -m | grep Mem | awk '{print $2;}')MB; fi"
+alias ..="cd .."
+
+function cdls() {
+  builtin cd "$*"
+  RESULT=$?
+  if [ "$RESULT" -eq 0 ]; then
+    ls
+  fi
+}
+
+alias cdl=cdls
