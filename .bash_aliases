@@ -9,6 +9,7 @@ else # Assumes Linux
     alias ram="echo $(free -m | grep Mem | awk '{print $2;}')MB"
 fi
 
+# General
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -18,14 +19,10 @@ alias l='ls -CF'
 alias sl="ls"
 alias sortip="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
 alias sed="sed -E"
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-alias objdump="objdump -M intel intel-mnemonic "
-alias pws="python -m SimpleHTTPServer "
-alias eip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias gdb="gdb -q"
 alias mkdir="mkdir -p"
 alias ..="cd .."
+alias du="du -sh"
+alias df="df -h"
 
 function cdls() {
   builtin cd "$*"
@@ -36,3 +33,20 @@ function cdls() {
 }
 
 alias cdl=cdls
+
+# git
+alias gs="git status "
+alias gc="git commit "
+alias gp="git push origin master"
+alias gl="git log"
+alias gd="git diff"
+
+# Network
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias eip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias pws="python -m SimpleHTTPServer "
+
+# Debugging
+alias objdump="objdump -M intel intel-mnemonic "
+alias gdb="gdb -q"
