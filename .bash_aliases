@@ -51,3 +51,24 @@ alias ipwhois="python -c \"from ipwhois import IPWhois; import sys; print IPWhoi
 # Debugging
 alias objdump="objdump -M intel intel-mnemonic "
 alias gdb="gdb -q"
+
+# Malware analysis
+alias peid="wine32 /opt/peid/PEiD.exe"
+
+function hash() {
+    if [ $(uname) == 'Darwin' ]; then
+        md5_hash=$(md5 "${1}" | cut -d ' ' -f4)
+    else
+        md5_hash=$(md5sum "${1}" | cut -d ' ' -f1)
+    fi
+
+    sha1_hash=$(shasum -a 1 "${1}" | cut -d ' ' -f1)
+    sha256_hash=$(shasum -a 256 "${1}" | cut -d ' ' -f1)
+    ssdeep_hash=$(ssdeep "${1}")
+
+    echo "Hashes for ${1}"
+    echo "MD5:    $md5_hash"
+    echo "SHA1:   $sha1_hash"
+    echo "SHA256: $sha256_hash"
+    echo "SSDEEP: $ssdeep_hash"
+}
