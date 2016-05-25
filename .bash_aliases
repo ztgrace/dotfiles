@@ -46,6 +46,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias eip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias pws="ifconfig|grep 'inet addr'|cut -d':' -f2|cut -d' ' -f1; python -m SimpleHTTPServer"
+alias ipwhois="python -c \"from ipwhois import IPWhois; import sys; print IPWhois(sys.argv[1]).lookup_whois()['nets'][0]['description'].replace(',',' ')\""
 
 # Debugging
 alias objdump="objdump -M intel intel-mnemonic "
