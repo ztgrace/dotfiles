@@ -24,7 +24,7 @@ alias ..="cd .."
 alias du="du -sh"
 alias df="df -h"
 
-function cdls() {
+function cdl() {
   builtin cd "$*"
   RESULT=$?
   if [ "$RESULT" -eq 0 ]; then
@@ -55,7 +55,7 @@ alias gdb="gdb -q"
 # Malware analysis
 alias peid="wine32 /opt/peid/PEiD.exe"
 
-function hash() {
+function filehash() {
     if [ $(uname) == 'Darwin' ]; then
         md5_hash=$(md5 "${1}" | cut -d ' ' -f4)
     else
@@ -72,3 +72,13 @@ function hash() {
     echo "SHA256: $sha256_hash"
     echo "SSDEEP: $ssdeep_hash"
 }
+
+function nmap-top-ports() {
+    cmd='grep -v "^#" /usr/share/nmap/nmap-services | sort -r -k 3,3 | grep tcp'
+    if [ ! -z $1 ]; then
+        cmd="${cmd} | head -n ${1}"
+    fi
+    echo $cmd
+    eval $cmd
+}
+
