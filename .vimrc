@@ -23,7 +23,9 @@ set background=dark
 let g:solarized_termcolors=256
 
 au BufNewFile,BufRead *.rc set syntax=ruby
+au BufNewFile,BufRead *.cna set syntax=perl
 au BufNewFile,BufRead *.nessus set syntax=off
+au BufNewFile,BufRead *.jad set syntax=java
 
 " ruby
 au BufNewFile,BufRead *.rb set tabstop=2

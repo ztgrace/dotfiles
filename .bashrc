@@ -97,7 +97,7 @@ function git-current-branch {
 }
 
 PS1='\[\033[01;34m\][\D{%H:%M:%S %d.%m.%y}]\[\033[01;31m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]]\[\033[00m\]$(git-current-branch)# '
-if [ -f /etc/debian_version ] && [ $(grep -c Kali /etc/debian_version) -eq 1 ]; then
+if [ -f /etc/debian_version ] && [ $(grep -ic kali /etc/debian_version) -eq 1 ]; then
     PS1='\[\033[01;34m\][\D{%H:%M:%S-%y%m%d}]\[\033[01;31m\][\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]]\[\033[00m\]$(git-current-branch)# '
 else
     PS1='\[\033[00;33m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;33m\]]\[\033[00m\]$(git-current-branch)# '

@@ -47,6 +47,7 @@ alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.
 alias eip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias pws="ifconfig|grep 'inet addr'|cut -d':' -f2|cut -d' ' -f1; python -m SimpleHTTPServer"
 alias ipwhois="python -c \"from ipwhois import IPWhois; import sys; print IPWhois(sys.argv[1]).lookup_whois()['nets'][0]['description']\""
+alias hexify="python -c \"from sys import argv; f=open(argv[1], 'rb').read(); print ''.join(map(lambda c:'\\\\\\x%02x'%c, map(ord, f)))\""
 
 # Debugging
 alias objdump="objdump -M intel intel-mnemonic "
