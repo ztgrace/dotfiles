@@ -27,6 +27,9 @@ au BufNewFile,BufRead *.cna set syntax=perl
 au BufNewFile,BufRead *.nessus set syntax=off
 au BufNewFile,BufRead *.jad set syntax=java
 
+" golang
+au BufNewFile,BufRead *.go set noexpandtab
+
 " ruby
 au BufNewFile,BufRead *.rb set tabstop=2
 au BufNewFile,BufRead *.rb set shiftwidth=2
@@ -35,7 +38,7 @@ au BufNewFile,BufRead *.rb set softtabstop=2
 " markdown
 " http://www.reddit.com/r/vim/comments/2x5yav/markdown_with_fenced_code_blocks_is_great/
 au BufNewFile,BufReadPost *.md set filetype=markdown
-let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
+let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
 
 " Vagrant
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
